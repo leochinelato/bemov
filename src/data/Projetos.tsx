@@ -31,10 +31,10 @@ export const projetos = {
     ],
     "clipes": [
         {
-            "titulo": "Donos das Rua",
+            "titulo": "Donos da Rua",
             "slug": "donos-das-rua",
-            "capa": "/projetos/clipes/melhor_momento/thumb.jpg",
-            "video": "/projetos/Clipes/Donos_das_Rua_Clipe/clipe.mp4",
+            "capa": "/projetos/clipes/donos_rua/thumb.jpg",
+            "video": "https://www.youtube.com/embed/5Xw_ggJI2oc?si=PF1L2cvHsu746-na",
             "descricao": "Clipe musical \"Donos das Rua\" com direção de fotografia e edição profissional. Trabalho focado em capturar a essência urbana e a energia do rap nacional."
         },
         {
@@ -47,8 +47,8 @@ export const projetos = {
         {
             "titulo": "Wallpaper",
             "slug": "wallpaper",
-            "capa": "/projetos/Clipes/Wallpaper_Clipe/capa.jpg",
-            "video": "/projetos/Clipes/Wallpaper_Clipe/clipe.mp4",
+            "capa": "/projetos/Clipes/wallpaper/thumb.jpg",
+            "video": "https://www.youtube.com/embed/u8jy4ugQ8_I?si=9yx_YfuwHwKwoe6H",
             "descricao": "Clipe \"Wallpaper\" com foco em composição visual e jogos de luz, criando uma atmosfera única que dialoga perfeitamente com a trilha sonora."
         }
     ],
