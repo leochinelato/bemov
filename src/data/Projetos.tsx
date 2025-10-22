@@ -47,7 +47,7 @@ export const projetos = {
         {
             "titulo": "Wallpaper",
             "slug": "wallpaper",
-            "capa": "/projetos/Clipes/wallpaper/thumb.jpg",
+            "capa": "/projetos/clipes/wallpaper/thumb.jpg",
             "video": "https://www.youtube.com/embed/u8jy4ugQ8_I?si=9yx_YfuwHwKwoe6H",
             "descricao": "Clipe \"Wallpaper\" com foco em composição visual e jogos de luz, criando uma atmosfera única que dialoga perfeitamente com a trilha sonora."
         }
