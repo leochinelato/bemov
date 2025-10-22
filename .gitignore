@@ -13,10 +13,6 @@
 # testing
 /coverage
 
-# projetos - video breno
-/public/projetos/
-/public/projetos/*
-
 # next.js
 /.next/
 /out/
