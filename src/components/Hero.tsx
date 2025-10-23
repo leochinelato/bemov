@@ -5,7 +5,7 @@ import React from 'react';
 
 const Hero = () => {
     return (
-        <main className="w-full h-screen flex items-center justify-center bg-[url('/fundos/breno-hero.png')] bg-no-repeat bg-center bg-contain">
+        <main className="w-full h-screen flex items-center justify-center">
             {/* Adicionado padding horizontal (px-6) para telas pequenas */}
             <div className="flex flex-col items-start cursor-default px-6">
                 {/* Fonte menor em telas pequenas, maior em telas grandes */}

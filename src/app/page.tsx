@@ -9,21 +9,28 @@ import Projects from "@/components/Projects";
 export default function Home() {
   return (
     // A div principal continua como está
-    <div className="flex justify-center items-center flex-col">
-      <Navigation />
-      <Hero />
+    <div className="flex justify-center items-center flex-col" >
+
+      <div
+        className="w-full bg-transparent bg-[url('/fundos/breno-hero.png')] bg-contain bg-no-repeat bg-center"
+      >
+
+        <Navigation />
+        <Hero />
+        <SobreMim id="sobre-mim" />
+
+      </div>
 
       {/* Novo contêiner para o wallpaper */}
-      <div 
-        className="w-full bg-[url('/fundos/breno-projects.png')] bg-cover bg-center "
+      <div
+        className="w-full bg-[url('/fundos/breno-projects.png')]  bg-no-repeat bg-cover bg-bottom"
       >
-        <SobreMim id="sobre-mim" />
         <Projects id="projects" />
         {/* <Gallery id="gallery" /> */}
         <Contact id="contact" />
       </div>
-
       <Footer id="footer" />
+
     </div>
   );
 }

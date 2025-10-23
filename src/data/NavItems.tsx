@@ -10,25 +10,25 @@ export const navitems = [
             {
                 title: 'Captação',
                 description: 'Da energia do palco à narrativa de um clipe, capturo a essência de cada performance musical com qualidade cinematográfica.',
-                image: '/capas/areas/captacao.png',
+                image: '/capas/areas/captacao.jpeg',
                 href: 'captacao'
             },
             {
                 title: 'Clipes',
                 description: 'Da energia do palco à narrativa de um clipe, capturo a essência de cada performance musical com qualidade cinematográfica.',
-                image: '/capas/areas/captacao.png',
+                image: '/capas/areas/clipe.jpeg',
                 href: 'clipes'
             },
             {
                 title: 'Fotografia',
                 description: 'Da energia do palco à narrativa de um clipe, capturo a essência de cada performance musical com qualidade cinematográfica.',
-                image: '/capas/areas/captacao.png',
+                image: '/capas/areas/foto.jpeg',
                 href: 'fotografia'
             },
             {
                 title: 'Real Time',
                 description: 'Da energia do palco à narrativa de um clipe, capturo a essência de cada performance musical com qualidade cinematográfica.',
-                image: '/capas/areas/captacao.png',
+                image: '/capas/areas/realtime.png',
                 href: 'realtime'
             },
         ]

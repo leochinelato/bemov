@@ -32,11 +32,11 @@ const Contact = ({id}: ContactProps) => {
   return (
     <section 
       id={id} 
-      className='scroll-mt-24 w-full min-h-screen flex flex-col gap-10 px-6 sm:px-12 md:px-20 lg:px-28 py-12'
+      className='scroll-mt-24 w-full min-h-screen flex flex-col gap-10 px-6 sm:px-12 md:px-20 lg:px-28 pt-12 items-center'
     >
       <h1 className='text-3xl md:text-4xl font-bold'>Contato</h1>
 
-      <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl'>
+      <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl pt-20'>
         {/* Formulário */}
         <div className='space-y-6'>
           <div>
