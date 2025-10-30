@@ -2,7 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react'; // Importar o ícone X
+import { usePathname } from 'next/navigation';
+import { Menu } from 'lucide-react';
 import { navitems } from '@/data/NavItems';
 
 // Componentes da UI
@@ -25,6 +26,37 @@ import { Button } from './ui/button';
 
 
 const Navigation = () => {
+  const pathname = usePathname();
+  
+  // Definir as categorias de projetos
+  const projectCategories = [
+    { title: 'Captação', href: '/captacao' },
+    { title: 'Clipes', href: '/clipes' },
+    { title: 'Fotografia', href: '/fotografia' },
+    { title: 'Real Time', href: '/realtime' }
+  ];
+
+  // Verificar se estamos numa página de projeto específico
+  const isProjectPage = projectCategories.some(cat => pathname.startsWith(cat.href));
+  
+  // Se estamos numa página de projeto, filtrar as outras categorias
+  const getNavigationItems = () => {
+    if (isProjectPage) {
+      // Retornar "Início" + outras categorias de projeto (exceto a atual)
+      const currentCategory = projectCategories.find(cat => pathname.startsWith(cat.href));
+      const otherCategories = projectCategories.filter(cat => cat.href !== currentCategory?.href);
+      
+      return [
+        { title: 'Início', href: '/' },
+        ...otherCategories
+      ];
+    }
+    
+    // Retornar navegação padrão
+    return navitems;
+  };
+
+  const navigationItems = getNavigationItems();
   return (
     <header className="absolute top-0 left-0 w-full z-50 p-4">
       <div className="container mx-auto flex justify-center items-center">
@@ -34,7 +66,7 @@ const Navigation = () => {
           {/* ...código do menu desktop sem alterações... */}
           <NavigationMenu>
             <NavigationMenuList>
-              {navitems.map((item, index) => (
+              {navigationItems.map((item, index) => (
                 <NavigationMenuItem key={index}>
                   <NavigationMenuLink asChild>
                     <Link
@@ -78,7 +110,7 @@ const Navigation = () => {
 
               {/* Navegação com links maiores e mais espaçados */}
               <nav className="flex flex-col gap-2 p-6">
-                {navitems.map((item) => (
+                {navigationItems.map((item) => (
                   <SheetClose asChild key={item.title}>
                     <Link
                       href={item.href}

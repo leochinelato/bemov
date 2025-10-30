@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Mail, Instagram, Send } from 'lucide-react';
+import { Mail, Instagram, Send, MessageCircle } from 'lucide-react';
 
 type ContactProps = {
-    id: string;
+  id: string;
 }
 
-const Contact = ({id}: ContactProps) => {
+const Contact = ({ id }: ContactProps) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,8 +30,8 @@ const Contact = ({id}: ContactProps) => {
   };
 
   return (
-    <section 
-      id={id} 
+    <section
+      id={id}
       className='scroll-mt-24 w-full min-h-screen flex flex-col gap-10 px-6 sm:px-12 md:px-20 lg:px-28 py-12 items-center'
     >
       <h1 className='text-3xl md:text-4xl font-bold'>Contato</h1>
@@ -134,19 +134,37 @@ const Contact = ({id}: ContactProps) => {
             >
               <div className='w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-black transition-colors'>
                 <Instagram className='w-6 h-6 text-gray-700 group-hover:text-white transition-colors' />
+                
               </div>
               <div>
                 <h3 className='font-semibold text-lg mb-1'>Instagram</h3>
                 <p className='text-gray-600'>@be.mov_</p>
               </div>
             </a>
+
+            {/* Whatsapp TODO: INSERIR WPP*/}
+            {/* <a
+              href="zap"
+              target="_blank"
+              rel="noopener noreferrer"
+              className='flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:ring-gray-700 hover:shadow-md transition-all group'
+            >
+              <div className='w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-black transition-colors'>
+                <MessageCircle className='w-6 h-6 text-gray-700 group-hover:text-white transition-colors' />
+                
+              </div>
+              <div>
+                <h3 className='font-semibold text-lg mb-1'>Whatsapp</h3>
+                <p className='text-gray-600'>1209381</p>
+              </div>
+            </a> */}
           </div>
 
           {/* Informações adicionais */}
           <div className='bg-neutral-900 p-6 rounded-lg border border-gray-200'>
             <h3 className='font-semibold text-lg mb-3 text-white'>Horário de Atendimento</h3>
             <p className='text-gray-600 text-sm leading-relaxed'>
-              Respondo todas as mensagens de segunda a sexta, das 9h às 18h. 
+              Respondo todas as mensagens de segunda a sexta, das 9h às 18h.
               Mensagens enviadas fora deste horário serão respondidas no próximo dia útil.
             </p>
           </div>

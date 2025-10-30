@@ -147,15 +147,18 @@ export const projetos = {
         {
             "titulo": "Abertura Super Copa Pionner",
             "slug": "abertura-super-copa-pionner",
-            "capa": "/projetos/Real Time/Abertura Super Copa Pionner/capa.jpg",
-            "video": "/projetos/Real Time/Abertura Super Copa Pionner/video.mp4",
+            "capa": "/projetos/Real Time/Abertura Super Copa Pionner/Capa.jpg",
+            "video": "https://www.youtube.com/embed/o93o_fxj00Q?si=XYCl8GzkX9nMluNb",
             "descricao": "Produção audiovisual da abertura da Super Copa Pionner, trabalhando com transmissão ao vivo e direção de múltiplas câmeras para criar uma experiência imersiva."
         },
         {
             "titulo": "Congresso Pionner",
             "slug": "congresso-pionner",
-            "capa": "/projetos/Real Time/Congresso Pionner/capa.jpg",
-            "video": "/projetos/Real Time/Congresso Pionner/video.mp4",
+            "capa": "/projetos/Real Time/Congresso Pionner/Capa.jpg",
+            "video": [
+                "https://www.youtube.com/embed/Y_mIOO4DnZ4?si=97qNos8LgvO9Jr5j",
+                "https://www.youtube.com/embed/KPxvLJEjQhI?si=DeggmROVAl5ZwYra"
+            ],
             "descricao": "Cobertura completa do Congresso Pionner com produção em tempo real, incluindo múltiplos ângulos de câmera e edição ao vivo para transmissão simultânea."
         }
     ]

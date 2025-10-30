@@ -22,7 +22,7 @@ interface RealTimePageProps {
 }
 
 export default function RealTimePage({ params }: RealTimePageProps) {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [playingVideos, setPlayingVideos] = useState<{[key: number]: boolean}>({});
   const [slug, setSlug] = useState<string>('');
 
   // Resolver params de forma assíncrona
@@ -37,6 +37,14 @@ export default function RealTimePage({ params }: RealTimePageProps) {
   if (!slug || !realtime) {
     return null;
   }
+
+  // Normalizar videos para sempre ser um array
+  const videos = Array.isArray(realtime.video) ? realtime.video : [realtime.video];
+
+  // Função para controlar reprodução de vídeo específico
+  const handlePlayVideo = (index: number) => {
+    setPlayingVideos(prev => ({ ...prev, [index]: true }));
+  };
 
   return (
     <div className="flex flex-col items-center w-full min-h-screen">
@@ -81,42 +89,63 @@ export default function RealTimePage({ params }: RealTimePageProps) {
           <div className="h-1 w-24 bg-black mx-auto"></div>
         </div>
 
-        {/* Vídeo */}
-        <div className="w-full aspect-video rounded-xl overflow-hidden bg-black shadow-2xl relative">
-          {!isPlaying ? (
-            // Mostrar capa com botão play
-            <div 
-              className="relative w-full h-full cursor-pointer group"
-              onClick={() => setIsPlaying(true)}
-            >
-              <Image
-                src={realtime.capa}
-                alt={realtime.titulo}
-                fill
-                className="object-cover"
-              />
-              {/* Overlay escuro */}
-              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300" />
-              
-              {/* Botão Play */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Play className="w-10 h-10 text-black ml-1" fill="currentColor" />
+        {/* Vídeos */}
+        <div className="w-full space-y-6">
+          {videos.length > 1 && (
+            <div className="text-center">
+              <h3 className="text-xl md:text-2xl font-semibold mb-4">Vídeos do Projeto</h3>
+            </div>
+          )}
+          
+          <div className={videos.length > 1 ? 'grid grid-cols-1 lg:grid-cols-2 gap-6 justify-items-center' : 'flex justify-center'}>
+            {videos.map((videoUrl, index) => (
+              <div key={index} className="w-full max-w-md">
+                <div className="w-full h-[600px] rounded-xl overflow-hidden bg-black shadow-2xl relative">
+                  {!playingVideos[index] ? (
+                    // Mostrar capa com botão play
+                    <div 
+                      className="relative w-full h-full cursor-pointer group"
+                      onClick={() => handlePlayVideo(index)}
+                    >
+                      <Image
+                        src={realtime.capa}
+                        alt={`${realtime.titulo} - Vídeo ${index + 1}`}
+                        fill
+                        className="object-cover"
+                      />
+                      {/* Overlay escuro */}
+                      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300" />
+                      
+                      {/* Botão Play */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <Play className="w-8 h-8 text-black ml-1" fill="currentColor" />
+                        </div>
+                      </div>
+                      
+                      {/* Indicador de vídeo múltiplo */}
+                      {videos.length > 1 && (
+                        <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 rounded text-sm">
+                          {index + 1} / {videos.length}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    // Mostrar iframe do YouTube
+                    <iframe 
+                      className="w-full h-full"
+                      src={`${videoUrl}?autoplay=1`}
+                      title={`${realtime.titulo} - Vídeo ${index + 1}`}
+                      frameBorder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                      referrerPolicy="strict-origin-when-cross-origin" 
+                      allowFullScreen
+                    />
+                  )}
                 </div>
               </div>
-            </div>
-          ) : (
-            // Mostrar iframe do YouTube
-            <iframe 
-              className="w-full h-full"
-              src={`${realtime.video}?autoplay=1`}
-              title="YouTube video player" 
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerPolicy="strict-origin-when-cross-origin" 
-              allowFullScreen
-            />
-          )}
+            ))}
+          </div>
         </div>
 
         {/* Descrição */}
@@ -147,7 +176,7 @@ export default function RealTimePage({ params }: RealTimePageProps) {
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
                     <div className="absolute bottom-0 left-0 w-full p-4">
                       <h4 className="text-white font-semibold text-sm md:text-base line-clamp-2">{item.titulo}</h4>
                     </div>
