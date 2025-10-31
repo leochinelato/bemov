@@ -143,7 +143,7 @@ const Contact = ({ id }: ContactProps) => {
             </a>
 
             <a
-              href="https://wa.me/5511984497096"
+              href="https://wa.me/5511983092055"
               target="_blank"
               rel="noopener noreferrer"
               className='flex items-start gap-4 p-4 border border-gray-200 rounded-lg hover:ring-gray-700 hover:shadow-md transition-all group'
