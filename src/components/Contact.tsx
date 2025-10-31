@@ -154,7 +154,7 @@ const Contact = ({ id }: ContactProps) => {
               </div>
               <div>
                 <h3 className='font-semibold text-lg mb-1'>Whatsapp</h3>
-                <p className='text-gray-600'>1209381</p>
+                <p className='text-gray-600'>11 98309-2055</p>
               </div>
             </a>
           </div>
