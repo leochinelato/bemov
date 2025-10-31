@@ -142,8 +142,7 @@ const Contact = ({ id }: ContactProps) => {
               </div>
             </a>
 
-            {/* Whatsapp TODO: INSERIR WPP*/}
-            {/* <a
+            <a
               href="zap"
               target="_blank"
               rel="noopener noreferrer"
@@ -157,7 +156,7 @@ const Contact = ({ id }: ContactProps) => {
                 <h3 className='font-semibold text-lg mb-1'>Whatsapp</h3>
                 <p className='text-gray-600'>1209381</p>
               </div>
-            </a> */}
+            </a>
           </div>
 
           {/* Informações adicionais */}
